@@ -20,7 +20,7 @@ try:
     #browser.implicitly_wait(5)
     browser.get(link)
 
-    # говорим Selenium проверять в течение 5 секунд, пока кнопка не станет кликабельной
+    # говорим Selenium проверять в течение 12 секунд, пока кнопка не станет кликабельной
     WebDriverWait(browser, 12).until(EC.text_to_be_present_in_element((By.ID, "price"), '$100'))
     button = browser.find_element_by_id('book')
     button.click()
@@ -35,6 +35,7 @@ finally:
     alert_text = alert.text
     alert.accept()
     answer = alert_text.split()[-1]
+
     #копируем ответ в буфер обмена
     pyperclip.copy(answer)
     browser.quit()
